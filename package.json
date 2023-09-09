@@ -1,0 +1,11 @@
+{
+  "name": "ultra-marq",
+  "version": "0.0.0",
+  "description": "Bookmark Manager and Custom StartPage",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
