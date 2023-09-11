@@ -15,6 +15,10 @@ body {
 
 a {}
 
+table {
+    border: solid 1px var(--gray-9);
+}
+
 
 /* 
     COMPONENTS
