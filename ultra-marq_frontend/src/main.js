@@ -2,6 +2,8 @@ import bookmarks from './bookmarks.js';
 
 const app = document.getElementById('app');
 const bookmarks_table = document.getElementById('bookmarks_table');
+const btn_add_bookmark = document.getElementById('btn_add_bookmark');
+const dialog = document.getElementById('dialog-add-bookmark');
 
 console.log(bookmarks);
 
@@ -14,5 +16,6 @@ function generateTable() {
         url.innerHTML = bookmarks.bookmarks[bookmark].url;
     }
 }
+
 
 generateTable();
