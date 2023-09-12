@@ -13,8 +13,6 @@ body {
     background-color: var(--violet-4);
 }
 
-a {}
-
 table {
     border: solid 1px var(--gray-9);
 }
