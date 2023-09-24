@@ -6,12 +6,12 @@ Bookmark Manager and Custom StartPage
 
 ### Soon
 
-- [ ] Clean up unnecessary files from template
 - [ ] Bookmarks table
   - [ ] Create table in supabase
   - [ ] Display data
   - [ ] Format/style to appear as a table
   - [ ] Make URLs clickable
+- [ ] Basic Styling
 
 ### Eventually
 
@@ -21,3 +21,4 @@ Bookmark Manager and Custom StartPage
 ### Completed
 
 - [x] Hook up Supabase
+- [x] Clean up unnecessary files from template
