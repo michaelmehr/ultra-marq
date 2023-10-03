@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies });
 
-  const { data: countries } = await supabase.from("countries").select();
+  const { data: countries } = await supabase.from("bookmarks").select();
 
   return (
     <ul className="my-auto text-foreground">
