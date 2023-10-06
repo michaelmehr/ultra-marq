@@ -14,9 +14,15 @@
 ### Eventually
 
 - [ ] Hosting (probably vercel)
-- [ ] Handling multiple users / login system
+
+#### Misc
+
+- [ ] Custom Favicon
+  - [ ] Create favicon in InkScape
+  - [ ] Apply favicon
 
 ### Completed
 
 - [x] Hook up Supabase
 - [x] Clean up unnecessary files from template
+- [x] Handling multiple users / login system
