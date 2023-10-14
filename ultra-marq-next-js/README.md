@@ -4,16 +4,12 @@
 
 ### Soon
 
-- [ ] Bookmarks table
-  - [x] Create table in supabase
-  - [ ] Display data
-  - [ ] Format/style to appear as a table
-  - [ ] Make URLs clickable
-- [ ] Basic Styling
+- [ ] 
 
 ### Eventually
 
 - [ ] Hosting (probably vercel)
+- [ ] Basic Styling
 
 #### Misc
 
@@ -26,3 +22,8 @@
 - [x] Hook up Supabase
 - [x] Clean up unnecessary files from template
 - [x] Handling multiple users / login system
+- [x] Bookmarks table
+  - [x] Create table in supabase
+  - [x] Display data
+  - [x] Format/style to appear as a table
+  - [x] Make URLs clickable
