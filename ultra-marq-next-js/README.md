@@ -4,12 +4,19 @@
 
 ### Soon
 
-- [ ] 
+- [ ] Allow users to create bookmarks
+  - [ ] `created_by` column in `bookmarks` table
+  - [ ] Update database policies
+  - [ ] `CreateBookmark` component
+  - [ ] Connect component to database
 
 ### Eventually
 
 - [ ] Hosting (probably vercel)
-- [ ] Basic Styling
+- [ ] General Styling
+  - [ ] Early styling
+    - [ ] Replace css from tutorial
+    - [ ] Apply tailwind classes
 
 #### Misc
 
