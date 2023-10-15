@@ -11,9 +11,9 @@ export default async function Account() {
     } = await supabase.auth.getSession()
 
     return (
-        <>
+        <div>
             <AccountForm session={session} />
-            <UserBookmarks />
-        </>
+            <UserBookmarks session={session} />
+        </div>
     )
 }

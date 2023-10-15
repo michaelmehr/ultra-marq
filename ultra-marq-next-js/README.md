@@ -32,6 +32,9 @@
 - [ ] Custom Favicon
   - [ ] Create favicon in InkScape
   - [ ] Apply favicon
+- [ ] Keep user authenticated between sessions
+- [ ] Remake `/account/page.jsx`
+  - [ ] Replace `AccountForm` with new `Profile` component
 
 ### Completed
 
