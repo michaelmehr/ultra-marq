@@ -14,12 +14,11 @@
   - [ ] Connect component to database
   - [ ] Only display bookmarks created by the user
   - [ ] Update database policies
+- [ ] Replace magic link auth with email/password auth
 
 ### Eventually
 
 - [ ] Hosting (probably vercel)
-- [ ] Replace 'Send Magic Link' authentication
-  - [ ] Username/Password
 - [ ] General Styling
   - [ ] Early styling
     - [ ] Replace css from tutorial
@@ -29,7 +28,7 @@
 - [ ] Custom Favicon
   - [ ] Create favicon in InkScape
   - [ ] Apply favicon
-- [ ] Keep user authenticated between sessions
+- [ ] Keep user authenticated between sessions?
 - [ ] Remake `/account/page.jsx`
   - [ ] Replace `AccountForm` with new `Profile` component
 
