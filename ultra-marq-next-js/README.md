@@ -4,9 +4,6 @@
 
 ### Issues
 
-- [ ] `/account`, 'Expected server HTML to contain a matching `<tr>` in `<table>`.'
-  - [ ] change `user-bookmarks.jsx` into a client component, mimicking `account-form.jsx` and `avatar.jsx`
-    - [ ] useEffect, async
 - [ ] Reorganize repo, remove unnecesary folder
 
 ### Soon
@@ -46,3 +43,7 @@
   - [x] Display data
   - [x] Format/style to appear as a table
   - [x] Make URLs clickable
+- [x] Issue: `/account`, 'Expected server HTML to contain a matching `<tr>` in `<table>`.'
+  - [x] change `user-bookmarks.jsx` into a client component, mimicking `account-form.jsx` and `avatar.jsx`
+    - [x] useEffect, async
+    - [x] could've solved it much quicker if i just checked the actual browser console
