@@ -1,7 +1,6 @@
 'use client'
 import { useCallback, useEffect, useState } from "react"
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
-import Avatar from "./avatar"
 
 export default function AccountForm({ session }) {
     const supabase = createClientComponentClient()
@@ -9,7 +8,6 @@ export default function AccountForm({ session }) {
     const [fullname, setFullname] = useState(null)
     const [username, setUsername] = useState(null)
     const [website, setWebsite] = useState(null)
-    const [avatar_url, setAvatarUrl] = useState(null)
     const user = session?.user
 
     const getProfile = useCallback(async () => {
@@ -18,7 +16,7 @@ export default function AccountForm({ session }) {
 
             let { data, error, status } = await supabase
                 .from('profiles')
-                .select('full_name, username, website, avatar_url')
+                .select('full_name, username, website')
                 .eq('id', user?.id)
                 .single()
 
@@ -30,7 +28,6 @@ export default function AccountForm({ session }) {
                 setFullname(data.full_name)
                 setUsername(data.username)
                 setWebsite(data.website)
-                setAvatarUrl(data.avatar_url)
             }
         } catch (error) {
             alert('Error loading user data!')
@@ -43,7 +40,7 @@ export default function AccountForm({ session }) {
         getProfile()
     }, [user, getProfile])
 
-    async function updateProfile({ username, website, avatar_url }) {
+    async function updateProfile({ username, website }) {
         try {
             setLoading(true)
 
@@ -52,7 +49,6 @@ export default function AccountForm({ session }) {
                 full_name: fullname,
                 username,
                 website,
-                avatar_url,
                 updated_at: new Date().toISOString(),
             })
             if (error) throw error
@@ -66,15 +62,6 @@ export default function AccountForm({ session }) {
 
     return (
         <div className="form-widget">
-        <Avatar
-            uid={user.id}
-            url={avatar_url}
-            size={150}
-            onUpload={(url) => {
-                setAvatarUrl(url)
-                updateProfile({ fullname, username, website, avatar_url: url })
-            }}
-        />
             <div>
                 <label htmlFor="email">Email</label>
                 <input id="email" type="text" value={session?.user.email} disabled />
@@ -110,7 +97,7 @@ export default function AccountForm({ session }) {
             <div>
                 <button
                 className="button primary block"
-                onClick={() => updateProfile({ fullname, username, website, avatar_url })}
+                onClick={() => updateProfile({ fullname, username, website })}
                 disabled={loading}
                 >
                 {loading ? 'Loading ...' : 'Update'}
