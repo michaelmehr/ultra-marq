@@ -3,13 +3,14 @@ import { cookies } from 'next/headers'
 import { NextResponse } from "next/server";
 
 export async function GET(req) {
-    const supabase = createRouteHandlerClient({ cookies })
-    const { searchParams } = new URL(req.url)
-    const code = searchParams.get('code')
-
+    const reqUrl = new URL(req.url)
+    const code = reqUrl.get('code')
+    
     if (code) {
+        const cookieStore = cookies()
+        const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
         await supabase.auth.exchangeCodeForSession(code)
     }
 
-    return NextResponse.redirect(new URL('/account', req.url))
+    return NextResponse.redirect(reqUrl.origin)
 }
