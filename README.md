@@ -9,7 +9,7 @@
 ### Soon
 
 - [ ] Allow users to create and view their own bookmarks
-  - [x] `user_id` column in `bookmarks` table
+  - [ ] `user_id` column in `bookmarks` table
   - [ ] `CreateBookmark` component
   - [ ] Connect component to database
   - [ ] Only display bookmarks created by the user
