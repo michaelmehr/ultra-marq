@@ -34,7 +34,6 @@
 
 ### Completed
 
-<<<<<<< HEAD
 - [x] Hook up Supabase
 - [x] Clean up unnecessary files from template
 - [x] Handling multiple users / login system
@@ -47,7 +46,5 @@
   - [x] change `user-bookmarks.jsx` into a client component, mimicking `account-form.jsx` and `avatar.jsx`
     - [x] useEffect, async
     - [x] could've solved it much quicker if i just checked the actual browser console
-=======
 - [x] ~~Hook up Supabase~~
 - [x] ~~Clean up unnecessary files from template~~
->>>>>>> f76dc89957a077c5c4876fa1de21cfbbae96f3e1
