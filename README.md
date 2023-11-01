@@ -6,20 +6,29 @@
 
 ### Soon
 
-- [ ] Allow users to create and view their own bookmarks
-  - [x] `user_id` column in `bookmarks` table
-  - [x] `UserBookmarks`
-  - [x] Connect component to database
-  - [x] Update database policies
-  - [x] Only display bookmarks created by the user
-  - [ ] Enable users to create new bookmarks
+- [ ] `UserBookmarks` Component
+  - [x] Users can read their bookmarks
+    - [x] `user_id` column in `bookmarks` table
+    - [x] `UserBookmarks`
+    - [x] Connect component to database
+    - [x] Update database policies
+    - [x] Only display bookmarks created by the user
+  - [ ] Users can insert bookmarks
+    - [x] Supabase policy
+    - [ ] 'Add Bookmark' Dialog
+    - [ ] Submitted bookmarks are added to the DB
+    - [ ] Client updates to show new bookmarks
+  - [ ] Users can delete their bookmarks
+    - [x] Supabase policy
+  - [ ] Users can edit/update their bookmarks
+    - [ ] Supabase policy
 
 ### Eventually
 
 - [ ] Hosting (probably vercel)
 - [ ] General Styling
   - [ ] Early styling
-    - [ ] Replace css from tutorial
+    - [ ] Remove css from tutorial
     - [ ] Apply tailwind classes
 - [ ] Folders
   - [ ] `folders` table

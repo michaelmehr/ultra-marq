@@ -14,6 +14,7 @@ export default async function Account() {
 
   return (
     <div>
+      <h1>Account</h1>
       <AccountForm session={session} />
       <UserBookmarks session={session} />
       {/* <TanstackTable /> */}
