@@ -6,64 +6,59 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 export default function UserBookmarks({ session }) {
+  const supabase = createClientComponentClient();
+  const user = session?.user;
 
-  const supabase = createClientComponentClient()
-  const user = session?.user
-
-  const [bookmarks, setBookmarks] = useState(null)
-  const [isOpen, setIsOpen] = useState(false)
-
+  const [bookmarks, setBookmarks] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const getBookmarks = useCallback(async () => {
     try {
-
       const { data, error, status } = await supabase
-        .from('bookmarks')
-        .select('id, title, url')
-        .eq('user_id', user?.id)
+        .from("bookmarks")
+        .select("id, title, url")
+        .eq("user_id", user?.id);
 
       if (error && status !== 406) {
-        throw error
+        throw error;
       }
 
       if (data) {
-        setBookmarks(data)
+        setBookmarks(data);
       }
     } catch (error) {
-      alert('Error loading bookmarks!')
+      alert("Error loading bookmarks!");
     }
-  }, [user, supabase])
+  }, [user, supabase]);
 
   useEffect(() => {
-    getBookmarks()
-  }, [user, getBookmarks])
+    getBookmarks();
+  }, [user, getBookmarks]);
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   async function insertBookmark({ title, url }) {
     try {
-      const { error } = await supabase
-        .from('bookmarks')
-        .insert({ 
-          user_id: user.id,
-          title,
-          url
-        })
+      const { error } = await supabase.from("bookmarks").insert({
+        user_id: user.id,
+        title,
+        url,
+      });
       if (error) {
-        throw error
+        throw error;
       }
-      alert('Bookmark added.')
+      alert("Bookmark added.");
     } catch (error) {
-      alert('ERROR: Could not add bookmark')
+      alert("ERROR: Could not add bookmark");
     }
   }
-  
+
   return (
     <div>
       <h3>User Bookmarks</h3>
@@ -88,7 +83,7 @@ export default function UserBookmarks({ session }) {
             </div>
             <div>
               <label htmlFor="url">URL</label>
-              <input id="url" type="text" /> 
+              <input id="url" type="text" />
             </div>
             <button>Submit</button>
           </Dialog.Panel>
