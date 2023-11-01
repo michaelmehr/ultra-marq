@@ -13,6 +13,7 @@ export default function UserBookmarks({ session }) {
   const [bookmarks, setBookmarks] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
 
+
   const getBookmarks = useCallback(async () => {
     try {
 
@@ -45,11 +46,23 @@ export default function UserBookmarks({ session }) {
     setIsOpen(false)
   }
 
-  // async function insertBookmark() {
-  //   try {
-      
-  //   }
-  // }
+  async function insertBookmark({ title, url }) {
+    try {
+      const { error } = await supabase
+        .from('bookmarks')
+        .insert({ 
+          user_id: user.id,
+          title,
+          url
+        })
+      if (error) {
+        throw error
+      }
+      alert('Bookmark added.')
+    } catch (error) {
+      alert('ERROR: Could not add bookmark')
+    }
+  }
   
   return (
     <div>
@@ -65,8 +78,9 @@ export default function UserBookmarks({ session }) {
         Add Bookmark
       </button>
       <Dialog open={isOpen} onClose={closeModal}>
-        <div>
-          <Dialog.Panel>
+        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+          <Dialog.Panel className="mx-auto max-w-sm rounded bg-white">
             <Dialog.Title>Add Bookmark</Dialog.Title>
             <div>
               <label htmlFor="title">Bookmark Name</label>
