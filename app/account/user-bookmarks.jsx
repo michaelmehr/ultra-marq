@@ -45,11 +45,11 @@ export default function UserBookmarks({ session }) {
     setIsOpen(false)
   }
 
-  async function insertBookmark() {
-    try {
+  // async function insertBookmark() {
+  //   try {
       
-    }
-  }
+  //   }
+  // }
   
   return (
     <div>
