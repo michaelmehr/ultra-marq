@@ -11,6 +11,8 @@ export default function UserBookmarks({ session }) {
 
   const [bookmarks, setBookmarks] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [title, setTitle] = useState("")
+  const [url, setUrl] = useState("")
 
   const getBookmarks = useCallback(async () => {
     try {
@@ -45,11 +47,13 @@ export default function UserBookmarks({ session }) {
 
   async function insertBookmark({ title, url }) {
     try {
-      const { error } = await supabase.from("bookmarks").insert({
-        user_id: user.id,
-        title,
-        url,
-      });
+      const { error } = await supabase
+        .from("bookmarks")
+        .insert({
+          user_id: user.id,
+          title,
+          url,
+        });
       if (error) {
         throw error;
       }
@@ -79,13 +83,29 @@ export default function UserBookmarks({ session }) {
             <Dialog.Title>Add Bookmark</Dialog.Title>
             <div>
               <label htmlFor="title">Bookmark Name</label>
-              <input id="title" type="text" />
+              <input 
+                id="title" 
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
             </div>
             <div>
               <label htmlFor="url">URL</label>
-              <input id="url" type="text" />
+              <input 
+                id="url" 
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+              />
             </div>
-            <button>Submit</button>
+            <button 
+              onClick={() => {
+                insertBookmark({ title, url })
+                closeModal()
+              }}
+            >
+            Done</button>
           </Dialog.Panel>
         </div>
       </Dialog>
