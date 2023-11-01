@@ -4,17 +4,15 @@
 
 ### Issues
 
-- [ ] Reorganize repo, remove unnecesary folder
-
 ### Soon
 
 - [ ] Allow users to create and view their own bookmarks
-  - [ ] `user_id` column in `bookmarks` table
-  - [ ] `CreateBookmark` component
-  - [ ] Connect component to database
-  - [ ] Only display bookmarks created by the user
-  - [ ] Update database policies
-- [ ] Replace magic link auth with email/password auth
+  - [x] `user_id` column in `bookmarks` table
+  - [x] `UserBookmarks`
+  - [x] Connect component to database
+  - [x] Update database policies
+  - [x] Only display bookmarks created by the user
+  - [ ] Enable users to create new bookmarks
 
 ### Eventually
 
@@ -26,7 +24,7 @@
 - [ ] Folders
   - [ ] `folders` table
 - [ ] Custom Favicon
-  - [ ] Create favicon in InkScape
+  - [ ] Create favicon
   - [ ] Apply favicon
 - [ ] Keep user authenticated between sessions?
 - [ ] Remake `/account/page.jsx`
@@ -46,5 +44,4 @@
   - [x] change `user-bookmarks.jsx` into a client component, mimicking `account-form.jsx` and `avatar.jsx`
     - [x] useEffect, async
     - [x] could've solved it much quicker if i just checked the actual browser console
-- [x] ~~Hook up Supabase~~
-- [x] ~~Clean up unnecessary files from template~~
+- [x] Reorganize repo, remove unnecesary folder
