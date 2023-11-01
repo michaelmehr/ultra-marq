@@ -1,7 +1,7 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import AccountForm from './account-form'
-import UserBookmarks from './user-bookmarks'
+import UserBookmarks from '../components/user-bookmarks'
 import TanstackTable from '../components/tanstack-table'
 
 export default async function Account() {

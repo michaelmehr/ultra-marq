@@ -1,5 +1,5 @@
 'use client'
-import Avatar from './avatar'
+import Avatar from '../components/avatar'
 import { useCallback, useEffect, useState } from 'react'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
