@@ -13,7 +13,9 @@
     "@supabase/auth-ui-react": "^0.4.5",
     "@supabase/auth-ui-shared": "^0.1.7",
     "@supabase/supabase-js": "^2.37.0",
+    "@tanstack/react-table": "^8.10.7",
     "next": "13.5.4",
+    "prettier": "^3.0.3",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -21,6 +23,7 @@
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
+    "eslint-config-prettier": "^9.0.0",
     "postcss": "^8",
     "supabase": "^1.100.1",
     "tailwindcss": "^3"
