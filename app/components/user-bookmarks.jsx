@@ -4,6 +4,7 @@ import { Dialog } from "@headlessui/react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import Bookmark from "./bookmark";
 
 export default function UserBookmarks({ session }) {
   const supabase = createClientComponentClient();
@@ -68,9 +69,11 @@ export default function UserBookmarks({ session }) {
       <h3>User Bookmarks</h3>
       <ul>
         {bookmarks?.map((bookmark) => (
-          <li key={bookmark.id}>
-            <Link href={bookmark.url}>{bookmark.title}</Link>
-          </li>
+          // <li key={bookmark.id}>
+          //   <Link href={bookmark.url}>{bookmark.title}</Link>
+          //   <button>X</button>
+          // </li>
+          <Bookmark bookmark={bookmark} />
         ))}
       </ul>
       <button type="button" onClick={openModal}>
