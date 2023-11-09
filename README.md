@@ -13,13 +13,14 @@
     - [x] Connect component to database
     - [x] Update database policies
     - [x] Only display bookmarks created by the user
-  - [ ] Users can insert bookmarks
+  - [x] Users can insert bookmarks
     - [x] Supabase policy
-    - [ ] 'Add Bookmark' Dialog
-    - [ ] Submitted bookmarks are added to the DB
-    - [ ] Client updates to show new bookmarks
+    - [x] 'Add Bookmark' Dialog
+    - [x] Submitted bookmarks are added to the DB
+    - [x] Client updates to show new bookmarks
   - [ ] Users can delete their bookmarks
     - [x] Supabase policy
+    - [ ] Generate delete buttons next to every bookmark
   - [ ] Users can edit/update their bookmarks
     - [ ] Supabase policy
 
