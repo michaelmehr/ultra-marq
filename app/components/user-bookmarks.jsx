@@ -73,10 +73,6 @@ export default function UserBookmarks({ session }) {
       <h3>User Bookmarks</h3>
       <ul>
         {bookmarks?.map((bookmark) => (
-          // <li key={bookmark.id}>
-          //   <Link href={bookmark.url}>{bookmark.title}</Link>
-          //   <button>X</button>
-          // </li>
           <Bookmark bookmark={bookmark} />
         ))}
       </ul>
