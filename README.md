@@ -18,9 +18,9 @@
     - [x] 'Add Bookmark' Dialog
     - [x] Submitted bookmarks are added to the DB
     - [x] Client updates to show new bookmarks
-  - [ ] Users can delete their bookmarks
+  - [x] Users can delete their bookmarks
     - [x] Supabase policy
-    - [ ] Generate delete buttons next to every bookmark
+    - [x] Generate delete buttons next to every bookmark
   - [ ] Users can edit/update their bookmarks
     - [ ] Supabase policy
 

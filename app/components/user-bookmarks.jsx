@@ -2,7 +2,6 @@
 
 import { Dialog } from "@headlessui/react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import Bookmark from "./bookmark";
 import { useRouter } from "next/navigation";
@@ -73,7 +72,7 @@ export default function UserBookmarks({ session }) {
       <h3>User Bookmarks</h3>
       <ul>
         {bookmarks?.map((bookmark) => (
-          <Bookmark bookmark={bookmark} />
+          <Bookmark key={bookmark.id} bookmark={bookmark} />
         ))}
       </ul>
       <button type="button" onClick={openModal}>
