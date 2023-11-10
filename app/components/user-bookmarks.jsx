@@ -5,10 +5,12 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import Bookmark from "./bookmark";
+import { useRouter } from "next/navigation";
 
 export default function UserBookmarks({ session }) {
   const supabase = createClientComponentClient();
   const user = session?.user;
+  const router = useRouter();
 
   const [bookmarks, setBookmarks] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +63,8 @@ export default function UserBookmarks({ session }) {
       alert("Bookmark added.");
     } catch (error) {
       alert("ERROR: Could not add bookmark");
+    } finally {
+      router.refresh()
     }
   }
 
