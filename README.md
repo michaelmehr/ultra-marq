@@ -6,31 +6,11 @@
 
 ### Soon
 
-- [ ] `UserBookmarks` Component
-  - [x] Users can read their bookmarks
-    - [x] `user_id` column in `bookmarks` table
-    - [x] `UserBookmarks`
-    - [x] Connect component to database
-    - [x] Update database policies
-    - [x] Only display bookmarks created by the user
-  - [x] Users can insert bookmarks
-    - [x] Supabase policy
-    - [x] 'Add Bookmark' Dialog
-    - [x] Submitted bookmarks are added to the DB
-    - [x] Client updates to show new bookmarks
-  - [x] Users can delete their bookmarks
-    - [x] Supabase policy
-    - [x] Generate delete buttons next to every bookmark
-  - [ ] Users can edit/update their bookmarks
-    - [ ] Supabase policy
+- [ ] Styling
 
 ### Eventually
 
 - [ ] Hosting (probably vercel)
-- [ ] General Styling
-  - [ ] Early styling
-    - [ ] Remove css from tutorial
-    - [ ] Apply tailwind classes
 - [ ] Folders
   - [ ] `folders` table
 - [ ] Custom Favicon
@@ -55,3 +35,20 @@
     - [x] useEffect, async
     - [x] could've solved it much quicker if i just checked the actual browser console
 - [x] Reorganize repo, remove unnecesary folder
+- [x] `UserBookmarks` Component
+  - [x] Users can read their bookmarks
+    - [x] `user_id` column in `bookmarks` table
+    - [x] `UserBookmarks`
+    - [x] Connect component to database
+    - [x] Update database policies
+    - [x] Only display bookmarks created by the user
+  - [x] Users can insert bookmarks
+    - [x] Supabase policy
+    - [x] 'Add Bookmark' Dialog
+    - [x] Submitted bookmarks are added to the DB
+    - [x] Client updates to show new bookmarks
+  - [x] Users can delete their bookmarks
+    - [x] Supabase policy
+    - [x] Generate delete buttons next to every bookmark
+  - [x] Users can edit/update their bookmarks
+    - [x] Supabase policy
