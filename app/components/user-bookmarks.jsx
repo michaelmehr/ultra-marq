@@ -68,16 +68,20 @@ export default function UserBookmarks({ session }) {
   }
 
   return (
-    <div>
-      <h3>User Bookmarks</h3>
-      <ul>
+    <div className="bg-slate-300 border rounded mt-3">
+      <h3 className="text-2xl text-center">User Bookmarks</h3>
+      <ul className="flex flex-col border border-black">
         {bookmarks?.map((bookmark) => (
           <Bookmark key={bookmark.id} bookmark={bookmark} />
         ))}
+        <button
+          className="border-black"
+          type="button" 
+          onClick={openModal}
+        >
+          Add Bookmark
+        </button>
       </ul>
-      <button type="button" onClick={openModal}>
-        Add Bookmark
-      </button>
       <Dialog open={isOpen} onClose={closeModal}>
         <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">

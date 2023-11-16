@@ -1,14 +1,7 @@
-/*
-  -----------
-  GLOBALS.CSS
-  -----------
-*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* 
-  This file is used for the layout of the entire application.
-    CSS files/rules meant to be used globally should be imported here.
-*/
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+button {
+  @apply border;
+}
