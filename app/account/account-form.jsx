@@ -7,8 +7,6 @@ import {
   Button,
   Input
 } from "@nextui-org/react";
-// import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 export default function AccountForm({ session }) {
   const supabase = createClientComponentClient();

@@ -1,8 +1,6 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import AccountForm from "./account-form";
-import UserBookmarks from "../components/user-bookmarks";
-import TanstackTable from "../components/tanstack-table";
 
 export default async function Account() {
   const cookieStore = cookies();
@@ -16,8 +14,6 @@ export default async function Account() {
     <div>
       <h1>Account</h1>
       <AccountForm session={session} />
-      <UserBookmarks session={session} />
-      {/* <TanstackTable /> */}
     </div>
   );
 }
