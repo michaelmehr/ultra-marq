@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { Button } from "@nextui-org/react"
+import { Button, Input } from "@nextui-org/react"
 
 export default function Bookmark({ bookmark }) {
 
@@ -79,18 +79,18 @@ export default function Bookmark({ bookmark }) {
           <Dialog.Panel className="mx-auto max-w-sm rounded bg-white">
             <Dialog.Title>Edit Bookmark</Dialog.Title>
             <div>
-              <label htmlFor="title">Bookmark Name</label>
-              <input 
+              <Input 
                 id="title" 
+                label="Bookmark Name"
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div>
-              <label htmlFor="url">URL</label>
-              <input 
+              <Input 
                 id="url" 
+                label="URL"
                 type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}

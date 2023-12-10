@@ -3,8 +3,11 @@ import Avatar from "../components/avatar";
 import { useCallback, useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-import { Button } from "@nextui-org/react";
-import { Input } from "@/components/ui/input";
+import { 
+  Button,
+  Input
+} from "@nextui-org/react";
+// import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function AccountForm({ session }) {
@@ -80,31 +83,36 @@ export default function AccountForm({ session }) {
         }}
       />
       <div>
-        <Label htmlFor="email">Email</Label>
-        <Input id="email" type="text" value={session?.user.email} disabled />
+        <Input 
+          id="email" 
+          label="Email" 
+          type="text" 
+          value={session?.user.email} 
+          disabled 
+        />
       </div>
       <div>
-        <Label htmlFor="fullName">Full Name</Label>
         <Input
           id="fullName"
+          label="Full Name"
           type="text"
           value={fullname || ""}
           onChange={(e) => setFullname(e.target.value)}
         />
       </div>
       <div>
-        <Label htmlFor="username">Username</Label>
         <Input
           id="username"
+          label="Username"
           type="text"
           value={username || ""}
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
       <div>
-        <Label htmlFor="website">Website</Label>
         <Input
           id="website"
+          label="Website"
           type="url"
           value={website || ""}
           onChange={(e) => setWebsite(e.target.value)}

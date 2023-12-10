@@ -6,7 +6,11 @@ import { useCallback, useEffect, useState } from "react";
 import Bookmark from "./bookmark";
 import { useRouter } from "next/navigation";
 
-import { Button } from "@nextui-org/react";
+import { 
+  Button, 
+  Input 
+} from "@nextui-org/react";
+
 import {
   Dialog,
   DialogContent,
@@ -16,8 +20,6 @@ import {
   DialogTrigger,
   DialogClose,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 
 export default function UserBookmarks({ session }) {
@@ -89,18 +91,18 @@ export default function UserBookmarks({ session }) {
             <DialogTitle>Add Bookmark</DialogTitle>
           </DialogHeader>
           <div>
-            <Label htmlFor="title">Bookmark Name</Label>
             <Input 
               id="title" 
+              label="Bookmark Name"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div>
-            <Label htmlFor="url">URL</Label>
             <Input 
               id="url" 
+              label="Bookmark URL"
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
