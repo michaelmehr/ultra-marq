@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { Button } from "@nextui-org/react"
+
 export default function Bookmark({ bookmark }) {
 
   const router = useRouter()
@@ -65,10 +67,12 @@ export default function Bookmark({ bookmark }) {
   }
 
   return (
-    <li>
+    <li className="flex justify-between">
       <Link href={bookmark.url}>{bookmark.title}</Link>
-      <button onClick={openModal}>Edit</button>
-      <button onClick={deleteBookmark}>X</button>
+      <div>
+        <Button onClick={openModal}>Edit</Button>
+        <Button onClick={deleteBookmark}>X</Button>
+      </div>
       <Dialog open={isEditing} onClose={closeModal}>
         <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
@@ -92,11 +96,11 @@ export default function Bookmark({ bookmark }) {
                 onChange={(e) => setUrl(e.target.value)}
               />
             </div>
-            <button 
+            <Button 
               onClick={saveEdit}
             >
               Save
-            </button>
+            </Button>
           </Dialog.Panel>
         </div>
       </Dialog>

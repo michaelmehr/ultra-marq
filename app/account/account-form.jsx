@@ -3,7 +3,7 @@ import Avatar from "../components/avatar";
 import { useCallback, useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@nextui-org/react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
