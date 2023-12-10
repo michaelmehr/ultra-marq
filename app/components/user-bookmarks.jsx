@@ -8,6 +8,10 @@ import { useRouter } from "next/navigation";
 
 import { 
   Button, 
+  Card, 
+  CardBody, 
+  CardFooter,
+  CardHeader,
   Input 
 } from "@nextui-org/react";
 
@@ -75,48 +79,54 @@ export default function UserBookmarks({ session }) {
   }
 
   return (
-    <div className="bg-slate-300 border rounded mt-3">
-      <h3 className="text-2xl text-center">User Bookmarks</h3>
-      <ul className="flex flex-col border border-black">
-        {bookmarks?.map((bookmark) => (
-          <Bookmark key={bookmark.id} bookmark={bookmark} />
-        ))}       
-      </ul>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button>Add Bookmark</Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Add Bookmark</DialogTitle>
-          </DialogHeader>
-          <div>
-            <Input 
-              id="title" 
-              label="Bookmark Name"
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div>
-            <Input 
-              id="url" 
-              label="Bookmark URL"
-              type="text"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-            />
-          </div>
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button onClick={() => {insertBookmark({ title, url })}}>
-                Done
-              </Button>
-            </DialogClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </div>
+    <Card className="bg-slate-300 border rounded mt-3">
+      <CardHeader>
+        <h3 className="text-2xl text-center">User Bookmarks</h3>
+      </CardHeader>
+      <CardBody>
+        <ul className="flex flex-col border border-black">
+          {bookmarks?.map((bookmark) => (
+            <Bookmark key={bookmark.id} bookmark={bookmark} />
+          ))}       
+        </ul>
+      </CardBody>
+      <CardFooter>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button>Add Bookmark</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Add Bookmark</DialogTitle>
+            </DialogHeader>
+            <div>
+              <Input 
+                id="title" 
+                label="Bookmark Name"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div>
+              <Input 
+                id="url" 
+                label="Bookmark URL"
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+              />
+            </div>
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button onClick={() => {insertBookmark({ title, url })}}>
+                  Done
+                </Button>
+              </DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </CardFooter>
+    </Card>
   );
 }
