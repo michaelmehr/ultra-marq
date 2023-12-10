@@ -3,6 +3,10 @@ import Avatar from "../components/avatar";
 import { useCallback, useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
 export default function AccountForm({ session }) {
   const supabase = createClientComponentClient();
   const [loading, setLoading] = useState(true);
@@ -76,12 +80,12 @@ export default function AccountForm({ session }) {
         }}
       />
       <div>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session?.user.email} disabled />
+        <Label htmlFor="email">Email</Label>
+        <Input id="email" type="text" value={session?.user.email} disabled />
       </div>
       <div>
-        <label htmlFor="fullName">Full Name</label>
-        <input
+        <Label htmlFor="fullName">Full Name</Label>
+        <Input
           id="fullName"
           type="text"
           value={fullname || ""}
@@ -89,8 +93,8 @@ export default function AccountForm({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="username">Username</label>
-        <input
+        <Label htmlFor="username">Username</Label>
+        <Input
           id="username"
           type="text"
           value={username || ""}
@@ -98,8 +102,8 @@ export default function AccountForm({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="website">Website</label>
-        <input
+        <Label htmlFor="website">Website</Label>
+        <Input
           id="website"
           type="url"
           value={website || ""}
@@ -108,22 +112,22 @@ export default function AccountForm({ session }) {
       </div>
 
       <div>
-        <button
-          className="button primary block"
+        <Button
+          className="button primary block border border-slate-500"
           onClick={() =>
             updateProfile({ fullname, username, website, avatar_url })
           }
           disabled={loading}
         >
           {loading ? "Loading ..." : "Update"}
-        </button>
+        </Button>
       </div>
 
       <div>
         <form action="/auth/signout" method="post">
-          <button className="button block" type="submit">
+          <Button className="button block border border-slate-500" type="submit">
             Sign out
-          </button>
+          </Button>
         </form>
       </div>
     </div>
