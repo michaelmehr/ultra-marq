@@ -26,7 +26,6 @@ export default function UserBookmarks({ session }) {
   const router = useRouter();
 
   const [bookmarks, setBookmarks] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState("")
   const [url, setUrl] = useState("")
 
@@ -52,14 +51,6 @@ export default function UserBookmarks({ session }) {
   useEffect(() => {
     getBookmarks();
   }, [user, getBookmarks]);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
 
   async function insertBookmark({ title, url }) {
     try {
@@ -90,7 +81,7 @@ export default function UserBookmarks({ session }) {
         ))}       
       </ul>
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button>Add Bookmark</Button>
         </DialogTrigger>
         <DialogContent>
