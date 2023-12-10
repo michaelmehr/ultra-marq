@@ -1,10 +1,24 @@
 "use client";
 
-import { Dialog } from "@headlessui/react";
+// import { Dialog } from "@headlessui/react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useCallback, useEffect, useState } from "react";
 import Bookmark from "./bookmark";
 import { useRouter } from "next/navigation";
+
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
 
 export default function UserBookmarks({ session }) {
   const supabase = createClientComponentClient();
@@ -73,47 +87,42 @@ export default function UserBookmarks({ session }) {
       <ul className="flex flex-col border border-black">
         {bookmarks?.map((bookmark) => (
           <Bookmark key={bookmark.id} bookmark={bookmark} />
-        ))}
-        <button
-          className="border-black"
-          type="button" 
-          onClick={openModal}
-        >
-          Add Bookmark
-        </button>
+        ))}       
       </ul>
-      <Dialog open={isOpen} onClose={closeModal}>
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <Dialog.Panel className="mx-auto max-w-sm rounded bg-white">
-            <Dialog.Title>Add Bookmark</Dialog.Title>
-            <div>
-              <label htmlFor="title">Bookmark Name</label>
-              <input 
-                id="title" 
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="url">URL</label>
-              <input 
-                id="url" 
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-              />
-            </div>
-            <button 
-              onClick={() => {
-                insertBookmark({ title, url })
-                closeModal()
-              }}
-            >
-            Done</button>
-          </Dialog.Panel>
-        </div>
+      <Dialog>
+        <DialogTrigger>
+          <Button>Add Bookmark</Button>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Add Bookmark</DialogTitle>
+          </DialogHeader>
+          <div>
+            <Label htmlFor="title">Bookmark Name</Label>
+            <Input 
+              id="title" 
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <Label htmlFor="url">URL</Label>
+            <Input 
+              id="url" 
+              type="text"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+            />
+          </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button onClick={() => {insertBookmark({ title, url })}}>
+                Done
+              </Button>
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
       </Dialog>
     </div>
   );
