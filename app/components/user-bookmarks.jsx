@@ -79,12 +79,12 @@ export default function UserBookmarks({ session }) {
   }
 
   return (
-    <Card className="bg-slate-300 border rounded mt-3">
+    <Card className="border rounded">
       <CardHeader>
-        <h3 className="text-2xl text-center">User Bookmarks</h3>
+        <h3 className="text-3xl">User Bookmarks</h3>
       </CardHeader>
       <CardBody>
-        <ul className="flex flex-col border border-black">
+        <ul className="flex flex-col">
           {bookmarks?.map((bookmark) => (
             <Bookmark key={bookmark.id} bookmark={bookmark} />
           ))}       
