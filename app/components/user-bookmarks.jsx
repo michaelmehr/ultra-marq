@@ -1,6 +1,5 @@
 "use client";
 
-// import { Dialog } from "@headlessui/react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useCallback, useEffect, useState } from "react";
 import Bookmark from "./bookmark";
@@ -12,7 +11,13 @@ import {
   CardBody, 
   CardFooter,
   CardHeader,
-  Input 
+  Input,
+  Modal, 
+  ModalContent, 
+  ModalHeader, 
+  ModalBody, 
+  ModalFooter,
+  useDisclosure,
 } from "@nextui-org/react";
 
 import {
@@ -30,6 +35,7 @@ export default function UserBookmarks({ session }) {
   const supabase = createClientComponentClient();
   const user = session?.user;
   const router = useRouter();
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   const [bookmarks, setBookmarks] = useState(null);
   const [title, setTitle] = useState("")
@@ -91,6 +97,40 @@ export default function UserBookmarks({ session }) {
         </ul>
       </CardBody>
       <CardFooter>
+        <Button onPress={onOpen}>BETTER Add Bookmark</Button>
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">Add Bookmark</ModalHeader>
+                <ModalBody>
+                  <Input 
+                    id="title" 
+                    label="Bookmark Name"
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
+                  <Input 
+                    id="url" 
+                    label="Bookmark URL"
+                    type="text"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                  />
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                  <Button onPressStart={() => {insertBookmark({ title, url })}} onPress={onClose}>
+                    Done
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
         <Dialog>
           <DialogTrigger asChild>
             <Button>Add Bookmark</Button>
