@@ -3,10 +3,7 @@ import Avatar from "../components/avatar";
 import { useCallback, useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-import { 
-  Button,
-  Input
-} from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 
 export default function AccountForm({ session }) {
   const supabase = createClientComponentClient();
@@ -81,12 +78,12 @@ export default function AccountForm({ session }) {
         }}
       />
       <div>
-        <Input 
-          id="email" 
-          label="Email" 
-          type="text" 
-          value={session?.user.email} 
-          disabled 
+        <Input
+          id="email"
+          label="Email"
+          type="text"
+          value={session?.user.email}
+          disabled
         />
       </div>
       <div>
@@ -131,7 +128,10 @@ export default function AccountForm({ session }) {
 
       <div>
         <form action="/auth/signout" method="post">
-          <Button className="button block border border-slate-500" type="submit">
+          <Button
+            className="button block border border-slate-500"
+            type="submit"
+          >
             Sign out
           </Button>
         </form>

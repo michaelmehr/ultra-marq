@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Dialog } from "@headlessui/react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -6,64 +6,63 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { Button, Input } from "@nextui-org/react"
+import { Button, Input } from "@nextui-org/react";
 
 export default function Bookmark({ bookmark }) {
+  const router = useRouter();
 
-  const router = useRouter()
-
-  const [isEditing, setIsEditing] = useState(false)
-  const [title, setTitle] = useState(bookmark.title)
-  const [url, setUrl] = useState(bookmark.url)
+  const [isEditing, setIsEditing] = useState(false);
+  const [title, setTitle] = useState(bookmark.title);
+  const [url, setUrl] = useState(bookmark.url);
 
   async function deleteBookmark() {
-    const supabase = createClientComponentClient()
+    const supabase = createClientComponentClient();
     try {
       const { error } = await supabase
-        .from('bookmarks')
+        .from("bookmarks")
         .delete()
-        .eq('id', bookmark.id)
+        .eq("id", bookmark.id);
       if (error) {
-        throw error
+        throw error;
       }
-      alert("Bookmark deleted")
+      alert("Bookmark deleted");
     } catch (error) {
-      alert("ERROR: Could not delete bookmark")
+      alert("ERROR: Could not delete bookmark");
     } finally {
-      router.refresh()
+      router.refresh();
     }
   }
 
   async function editBookmark() {
-    const supabase = createClientComponentClient()
+    const supabase = createClientComponentClient();
     try {
       const { error } = await supabase
-        .from('bookmarks')
+        .from("bookmarks")
         .update({ title, url })
-        .eq('id', bookmark.id)
+        .eq("id", bookmark.id);
 
       if (error) {
         throw error;
       }
-      alert("Bookmark updated")
+      alert("Bookmark updated");
     } catch (error) {
-      alert("ERROR: Could not update bookmark")
+      alert("ERROR: Could not update bookmark");
     } finally {
-      router.refresh()
+      router.refresh();
     }
   }
 
   function openModal() {
-    setIsEditing(true)
+    setIsEditing(true);
   }
 
   function closeModal() {
-    setIsEditing(false)
+    setIsEditing(false);
   }
 
   function saveEdit() {
-    editBookmark()
-    closeModal()
+    editBookmark();
+    closeModal();
   }
 
   return (
@@ -79,8 +78,8 @@ export default function Bookmark({ bookmark }) {
           <Dialog.Panel className="mx-auto max-w-sm rounded bg-white">
             <Dialog.Title>Edit Bookmark</Dialog.Title>
             <div>
-              <Input 
-                id="title" 
+              <Input
+                id="title"
                 label="Bookmark Name"
                 type="text"
                 value={title}
@@ -88,22 +87,18 @@ export default function Bookmark({ bookmark }) {
               />
             </div>
             <div>
-              <Input 
-                id="url" 
+              <Input
+                id="url"
                 label="URL"
                 type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
               />
             </div>
-            <Button 
-              onClick={saveEdit}
-            >
-              Save
-            </Button>
+            <Button onClick={saveEdit}>Save</Button>
           </Dialog.Panel>
         </div>
       </Dialog>
     </li>
-  )
+  );
 }

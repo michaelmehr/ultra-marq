@@ -5,17 +5,17 @@ import { useCallback, useEffect, useState } from "react";
 import Bookmark from "./bookmark";
 import { useRouter } from "next/navigation";
 
-import { 
-  Button, 
-  Card, 
-  CardBody, 
+import {
+  Button,
+  Card,
+  CardBody,
   CardFooter,
   CardHeader,
   Input,
-  Modal, 
-  ModalContent, 
-  ModalHeader, 
-  ModalBody, 
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
   ModalFooter,
   useDisclosure,
 } from "@nextui-org/react";
@@ -28,18 +28,17 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
-} from "@/components/ui/dialog"
-
+} from "@/components/ui/dialog";
 
 export default function UserBookmarks({ session }) {
   const supabase = createClientComponentClient();
   const user = session?.user;
   const router = useRouter();
-  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const [bookmarks, setBookmarks] = useState(null);
-  const [title, setTitle] = useState("")
-  const [url, setUrl] = useState("")
+  const [title, setTitle] = useState("");
+  const [url, setUrl] = useState("");
 
   const getBookmarks = useCallback(async () => {
     try {
@@ -66,13 +65,11 @@ export default function UserBookmarks({ session }) {
 
   async function insertBookmark({ title, url }) {
     try {
-      const { error } = await supabase
-        .from("bookmarks")
-        .insert({
-          user_id: user.id,
-          title,
-          url,
-        });
+      const { error } = await supabase.from("bookmarks").insert({
+        user_id: user.id,
+        title,
+        url,
+      });
       if (error) {
         throw error;
       }
@@ -80,7 +77,7 @@ export default function UserBookmarks({ session }) {
     } catch (error) {
       alert("ERROR: Could not add bookmark");
     } finally {
-      router.refresh()
+      router.refresh();
     }
   }
 
@@ -93,7 +90,7 @@ export default function UserBookmarks({ session }) {
         <ul className="flex flex-col">
           {bookmarks?.map((bookmark) => (
             <Bookmark key={bookmark.id} bookmark={bookmark} />
-          ))}       
+          ))}
         </ul>
       </CardBody>
       <CardFooter>
@@ -102,17 +99,19 @@ export default function UserBookmarks({ session }) {
           <ModalContent>
             {(onClose) => (
               <>
-                <ModalHeader className="flex flex-col gap-1">Add Bookmark</ModalHeader>
+                <ModalHeader className="flex flex-col gap-1">
+                  Add Bookmark
+                </ModalHeader>
                 <ModalBody>
-                  <Input 
-                    id="title" 
+                  <Input
+                    id="title"
                     label="Bookmark Name"
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                   />
-                  <Input 
-                    id="url" 
+                  <Input
+                    id="url"
                     label="Bookmark URL"
                     type="text"
                     value={url}
@@ -123,7 +122,12 @@ export default function UserBookmarks({ session }) {
                   <Button color="danger" variant="light" onPress={onClose}>
                     Close
                   </Button>
-                  <Button onPressStart={() => {insertBookmark({ title, url })}} onPress={onClose}>
+                  <Button
+                    onPressStart={() => {
+                      insertBookmark({ title, url });
+                    }}
+                    onPress={onClose}
+                  >
                     Done
                   </Button>
                 </ModalFooter>
@@ -140,8 +144,8 @@ export default function UserBookmarks({ session }) {
               <DialogTitle>Add Bookmark</DialogTitle>
             </DialogHeader>
             <div>
-              <Input 
-                id="title" 
+              <Input
+                id="title"
                 label="Bookmark Name"
                 type="text"
                 value={title}
@@ -149,8 +153,8 @@ export default function UserBookmarks({ session }) {
               />
             </div>
             <div>
-              <Input 
-                id="url" 
+              <Input
+                id="url"
                 label="Bookmark URL"
                 type="text"
                 value={url}
@@ -159,7 +163,11 @@ export default function UserBookmarks({ session }) {
             </div>
             <DialogFooter>
               <DialogClose asChild>
-                <Button onClick={() => {insertBookmark({ title, url })}}>
+                <Button
+                  onClick={() => {
+                    insertBookmark({ title, url });
+                  }}
+                >
                   Done
                 </Button>
               </DialogClose>
