@@ -80,6 +80,7 @@ export default function AccountForm({ session }) {
       <div>
         <Input
           id="email"
+          className="pb-1.5"
           label="Email"
           type="text"
           value={session?.user.email}
@@ -89,6 +90,7 @@ export default function AccountForm({ session }) {
       <div>
         <Input
           id="fullName"
+          className="pb-1.5"
           label="Full Name"
           type="text"
           value={fullname || ""}
@@ -98,6 +100,7 @@ export default function AccountForm({ session }) {
       <div>
         <Input
           id="username"
+          className="pb-1.5"
           label="Username"
           type="text"
           value={username || ""}
@@ -107,6 +110,7 @@ export default function AccountForm({ session }) {
       <div>
         <Input
           id="website"
+          className="pb-1.5"
           label="Website"
           type="url"
           value={website || ""}
