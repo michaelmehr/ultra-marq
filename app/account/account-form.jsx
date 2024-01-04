@@ -67,7 +67,7 @@ export default function AccountForm({ session }) {
   }
 
   return (
-    <div className="form-widget">
+    <div className="container">
       <Avatar
         uid={user.id}
         url={avatar_url}
@@ -117,28 +117,30 @@ export default function AccountForm({ session }) {
           onChange={(e) => setWebsite(e.target.value)}
         />
       </div>
-
-      <div>
-        <Button
-          className="button primary block border border-slate-500"
-          onClick={() =>
-            updateProfile({ fullname, username, website, avatar_url })
-          }
-          disabled={loading}
-        >
-          {loading ? "Loading ..." : "Update"}
-        </Button>
-      </div>
-
-      <div>
-        <form action="/auth/signout" method="post">
+      <div className="flex space-x-2 py-1">
+        <div>
           <Button
-            className="button block border border-slate-500"
-            type="submit"
+            className="button primary block border border-slate-500"
+            onClick={() =>
+              updateProfile({ fullname, username, website, avatar_url })
+            }
+            isDisabled={loading}
           >
-            Sign out
+            {loading ? "Loading ..." : "Update"}
           </Button>
-        </form>
+        </div>
+
+        <div>
+          <form action="/auth/signout" method="post">
+            <Button
+              className="button block border border-slate-500"
+              type="submit"
+              variant="danger"
+            >
+              Sign out
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
   );
