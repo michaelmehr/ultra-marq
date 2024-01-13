@@ -67,7 +67,7 @@ export default function AccountForm({ session }) {
   }
 
   return (
-    <div className="container">
+    <div>
       <Avatar
         uid={user.id}
         url={avatar_url}
